@@ -53,3 +53,54 @@ class Flashcard {
     this.isFlipped = false,
   });
 }
+
+// -------------------------------------------------------------
+// متجر المكافآت واستبدال النقاط (Rewards Store)
+// -------------------------------------------------------------
+class RedeemableReward {
+  final String id;
+  final String title;
+  final String description;
+  final int pointsCost;
+  final IconData icon;
+  final Color color;
+  bool isClaimed;
+
+  RedeemableReward({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.pointsCost,
+    required this.icon,
+    required this.color,
+    this.isClaimed = false,
+  });
+}
+
+// -------------------------------------------------------------
+// مهام كسب النقاط اليومية (Daily Points Tasks)
+// -------------------------------------------------------------
+class PointsTask {
+  final String id;
+  final String title;
+  final int pointsReward;
+  final int currentProgress;
+  final int targetProgress;
+  final IconData icon;
+  final Color color;
+  bool isCompleted;
+  bool isClaimed;
+
+  PointsTask({
+    required this.id,
+    required this.title,
+    required this.pointsReward,
+    required this.currentProgress,
+    required this.targetProgress,
+    required this.icon,
+    required this.color,
+    this.isCompleted = false,
+    this.isClaimed = false,
+  });
+}
+

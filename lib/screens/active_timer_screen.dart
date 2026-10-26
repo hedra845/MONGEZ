@@ -7,6 +7,7 @@ import 'distraction_lock_screen.dart';
 import 'ai_quiz_generation_screen.dart';
 import 'ambient_sounds_screen.dart';
 import 'smart_flashcards_screen.dart';
+import 'ai_audio_notes_screen.dart';
 
 class ActiveTimerScreen extends StatelessWidget {
   const ActiveTimerScreen({super.key});
@@ -171,6 +172,7 @@ class ActiveTimerScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     app.stopTimer();
+                    app.addPoints(50);
                     Navigator.of(context).pushReplacement(
                       MaterialPageRoute(
                         builder: (_) => const AiQuizGenerationScreen(),
@@ -196,9 +198,10 @@ class ActiveTimerScreen extends StatelessWidget {
 
               const SizedBox(height: 12),
 
-              // Shortcuts row for Ambient Sounds & Flashcards
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              // Shortcuts row for Ambient Sounds, Flashcards & Audio Notes
+              Wrap(
+                alignment: WrapAlignment.center,
+                spacing: 6,
                 children: [
                   TextButton.icon(
                     onPressed: () {
@@ -206,30 +209,45 @@ class ActiveTimerScreen extends StatelessWidget {
                         MaterialPageRoute(builder: (_) => const SmartFlashcardsScreen()),
                       );
                     },
-                    icon: const Icon(Icons.style_outlined, size: 18, color: Color(0xFF10B981)),
+                    icon: const Icon(Icons.style_outlined, size: 16, color: Color(0xFF10B981)),
                     label: Text(
                       "البطاقات الذكية",
                       style: GoogleFonts.cairo(
-                        fontSize: 12.5,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFF10B981),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 8),
                   TextButton.icon(
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(builder: (_) => const AmbientSoundsScreen()),
                       );
                     },
-                    icon: const Icon(Icons.headphones_rounded, size: 18, color: Color(0xFF0EA5E9)),
+                    icon: const Icon(Icons.headphones_rounded, size: 16, color: Color(0xFF0EA5E9)),
                     label: Text(
                       "صوتيات التركيز",
                       style: GoogleFonts.cairo(
-                        fontSize: 12.5,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFF0EA5E9),
+                      ),
+                    ),
+                  ),
+                  TextButton.icon(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const AiAudioNotesScreen()),
+                      );
+                    },
+                    icon: const Icon(Icons.mic_external_on_rounded, size: 16, color: Color(0xFF8B5CF6)),
+                    label: Text(
+                      "ملاحظة صوتية",
+                      style: GoogleFonts.cairo(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                        color: const Color(0xFF8B5CF6),
                       ),
                     ),
                   ),

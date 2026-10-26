@@ -88,6 +88,70 @@ class QuizResultScreen extends StatelessWidget {
                         height: 1.4,
                       ),
                     ),
+
+                    const SizedBox(height: 16),
+
+                    // Star Reward Celebratory Card (حصول الطالب على نجمة التميز)
+                    Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: isDark
+                              ? [const Color(0xFF2E1A47), const Color(0xFF1E1435)]
+                              : [const Color(0xFFFEF3C7), const Color(0xFFFFFBEB)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(18),
+                        border: Border.all(
+                          color: const Color(0xFFF59E0B).withValues(alpha: 0.5),
+                          width: 1.5,
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0xFFF59E0B).withValues(alpha: 0.2),
+                            blurRadius: 12,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(8),
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFF59E0B).withValues(alpha: 0.2),
+                              shape: BoxShape.circle,
+                            ),
+                            child: const Text("⭐", style: TextStyle(fontSize: 24)),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "حصلت على نجمة تفوق جديدة! 🌟",
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 13.5,
+                                    fontWeight: FontWeight.bold,
+                                    color: isDark ? const Color(0xFFFDE68A) : const Color(0xFFB45309),
+                                  ),
+                                ),
+                                Text(
+                                  "تضاف إلى رصيدك للمنافسة على مكافأة نهاية العام من إدارة التطبيق 🎁",
+                                  style: GoogleFonts.cairo(
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w600,
+                                    color: isDark ? const Color(0xFFCBD5E1) : const Color(0xFF78350F),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),

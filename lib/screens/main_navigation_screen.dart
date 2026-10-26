@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'home_dashboard_screen.dart';
 import 'dynamic_schedule_screen.dart';
-import 'reports_progress_screen.dart';
-import 'distraction_lock_screen.dart';
 import 'gamification_rewards_screen.dart';
 import 'profile_screen.dart';
+import 'more_features_screen.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -14,14 +14,17 @@ class MainNavigationScreen extends StatefulWidget {
 }
 
 class _MainNavigationScreenState extends State<MainNavigationScreen> {
-  int _currentIndex = 0;
+  int _currentIndex = 2; // الرئيسية (Home) is active by default as shown in design
 
-  final List<Widget> _screens = const [
-    DynamicScheduleScreen(),
-    DistractionLockScreen(),
-    GamificationRewardsScreen(),
-    ReportsProgressScreen(),
-    ProfileScreen(),
+  late final List<Widget> _screens = [
+    const MoreFeaturesScreen(),
+    const DynamicScheduleScreen(),
+    HomeDashboardScreen(
+      onNavigateToSchedule: () => setState(() => _currentIndex = 1),
+      onNavigateToRewards: () => setState(() => _currentIndex = 3),
+    ),
+    const GamificationRewardsScreen(),
+    const ProfileScreen(),
   ];
 
   @override
@@ -31,61 +34,77 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
     return Scaffold(
       body: _screens[_currentIndex],
       bottomNavigationBar: Container(
+        height: 68,
         decoration: BoxDecoration(
           color: isDark ? const Color(0xFF0F182A) : Colors.white,
           border: Border(
             top: BorderSide(
-              color: isDark ? const Color(0xFF1F2F4E) : const Color(0xFFDCE4F0),
-              width: 1.2,
+              color: isDark ? const Color(0xFF1F2F4E) : const Color(0xFFE2E8F0),
+              width: 1.0,
             ),
           ),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF0F2547).withValues(alpha: isDark ? 0.3 : 0.06),
+              color: const Color(0xFF0F2547).withValues(alpha: isDark ? 0.3 : 0.04),
               blurRadius: 16,
               offset: const Offset(0, -4),
             ),
           ],
         ),
-        child: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          type: BottomNavigationBarType.fixed,
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          selectedItemColor: const Color(0xFF1E5BB8),
-          unselectedItemColor: isDark ? const Color(0xFF64748B) : const Color(0xFF8F9FB5),
-          selectedLabelStyle: GoogleFonts.cairo(fontWeight: FontWeight.bold, fontSize: 11),
-          unselectedLabelStyle: GoogleFonts.cairo(fontWeight: FontWeight.w600, fontSize: 10.5),
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month_outlined),
-              activeIcon: Icon(Icons.calendar_month_rounded),
-              label: "الجدول",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _buildNavItem(0, "المزيد", Icons.grid_view_rounded, isDark),
+            _buildNavItem(1, "الجدول", Icons.calendar_month_outlined, isDark),
+            _buildNavItem(2, "الرئيسية", Icons.home_rounded, isDark),
+            _buildNavItem(3, "النقاط", Icons.star_outline_rounded, isDark),
+            _buildNavItem(4, "الملف الشخصي", Icons.person_outline_rounded, isDark),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildNavItem(int index, String label, IconData icon, bool isDark) {
+    final isSelected = _currentIndex == index;
+    const activeColor = Color(0xFF2563EB);
+    final inactiveColor = isDark ? const Color(0xFF64748B) : const Color(0xFF8F9FB5);
+
+    return Expanded(
+      child: InkWell(
+        onTap: () {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+              size: 23,
+              color: isSelected ? activeColor : inactiveColor,
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shield_outlined),
-              activeIcon: Icon(Icons.shield_rounded),
-              label: "قفل المشتتات",
+            const SizedBox(height: 2),
+            Text(
+              label,
+              style: GoogleFonts.cairo(
+                fontSize: 10.5,
+                fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
+                color: isSelected ? activeColor : inactiveColor,
+              ),
             ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.military_tech_outlined),
-              activeIcon: Icon(Icons.military_tech_rounded),
-              label: "الجوائز",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.bar_chart_outlined),
-              activeIcon: Icon(Icons.bar_chart_rounded),
-              label: "التقارير",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline_rounded),
-              activeIcon: Icon(Icons.person_rounded),
-              label: "حسابي",
+            const SizedBox(height: 3),
+            // Blue bottom indicator underline like the design
+            Container(
+              width: 22,
+              height: 2.5,
+              decoration: BoxDecoration(
+                color: isSelected ? activeColor : Colors.transparent,
+                borderRadius: BorderRadius.circular(2),
+              ),
             ),
           ],
         ),

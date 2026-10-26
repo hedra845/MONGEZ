@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+enum SessionStatus {
+  completed,
+  inProgress,
+  upcoming,
+}
+
 class StudySession {
   final String id;
   final String subject;
@@ -9,6 +15,7 @@ class StudySession {
   final Color color;
   final IconData icon;
   final bool isCompleted;
+  final SessionStatus status;
 
   StudySession({
     required this.id,
@@ -19,6 +26,7 @@ class StudySession {
     required this.color,
     required this.icon,
     this.isCompleted = false,
+    this.status = SessionStatus.upcoming,
   });
 
   StudySession copyWith({
@@ -30,6 +38,7 @@ class StudySession {
     Color? color,
     IconData? icon,
     bool? isCompleted,
+    SessionStatus? status,
   }) {
     return StudySession(
       id: id ?? this.id,
@@ -40,6 +49,7 @@ class StudySession {
       color: color ?? this.color,
       icon: icon ?? this.icon,
       isCompleted: isCompleted ?? this.isCompleted,
+      status: status ?? this.status,
     );
   }
 }
@@ -89,3 +99,51 @@ class QuizQuestion {
     this.selectedIndex,
   });
 }
+
+class SubjectProgress {
+  final String name;
+  final int percentage;
+  final IconData icon;
+  final Color color;
+
+  const SubjectProgress({
+    required this.name,
+    required this.percentage,
+    required this.icon,
+    required this.color,
+  });
+}
+
+// -------------------------------------------------------------
+// الإشعارات والتنبيهات (App Notifications)
+// -------------------------------------------------------------
+enum NotificationType {
+  study, // تذكير جلسات ومذاكرة
+  support, // دعم نفسي وطمأنينة
+  rewards, // مكافآت ونقاط
+  system, // مواعيد واختبارات
+}
+
+class AppNotification {
+  final String id;
+  final String title;
+  final String body;
+  final String timeAgo;
+  final NotificationType type;
+  final IconData icon;
+  final Color color;
+  bool isRead;
+
+  AppNotification({
+    required this.id,
+    required this.title,
+    required this.body,
+    required this.timeAgo,
+    required this.type,
+    required this.icon,
+    required this.color,
+    this.isRead = false,
+  });
+}
+
+

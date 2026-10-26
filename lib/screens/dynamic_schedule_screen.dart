@@ -4,6 +4,10 @@ import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
 import '../widgets/common_widgets.dart';
 import 'session_setup_screen.dart';
+import 'virtual_study_rooms_screen.dart';
+import 'gpa_calculator_screen.dart';
+import 'ai_audio_notes_screen.dart';
+import 'habits_tracker_screen.dart';
 
 class DynamicScheduleScreen extends StatelessWidget {
   const DynamicScheduleScreen({super.key});
@@ -56,7 +60,66 @@ class DynamicScheduleScreen extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 18),
+              const SizedBox(height: 14),
+
+              // Quick Access Hub
+              Row(
+                children: [
+                  _buildQuickAction(
+                    context: context,
+                    icon: Icons.checklist_rtl_rounded,
+                    label: "العادات والدعم",
+                    color: const Color(0xFF6366F1),
+                    isDark: isDark,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const HabitsTrackerScreen()),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 6),
+                  _buildQuickAction(
+                    context: context,
+                    icon: Icons.mic_external_on_rounded,
+                    label: "ملخصات",
+                    color: const Color(0xFF0EA5E9),
+                    isDark: isDark,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const AiAudioNotesScreen()),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 6),
+                  _buildQuickAction(
+                    context: context,
+                    icon: Icons.calculate_rounded,
+                    label: "الحاسبة",
+                    color: const Color(0xFF10B981),
+                    isDark: isDark,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const GpaCalculatorScreen()),
+                      );
+                    },
+                  ),
+                  const SizedBox(width: 6),
+                  _buildQuickAction(
+                    context: context,
+                    icon: Icons.groups_rounded,
+                    label: "غرف المذاكرة",
+                    color: const Color(0xFF1E5BB8),
+                    isDark: isDark,
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(builder: (_) => const VirtualStudyRoomsScreen()),
+                      );
+                    },
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 14),
 
               // Schedule List
               Expanded(
@@ -92,27 +155,21 @@ class DynamicScheduleScreen extends StatelessWidget {
                         ),
                         child: Row(
                           children: [
-                            // Time Badge
+                            // Leading Icon Box (Right in RTL)
                             Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+                              width: 44,
+                              height: 44,
                               decoration: BoxDecoration(
-                                color: item.color.withOpacity(0.12),
-                                borderRadius: BorderRadius.circular(10),
+                                color: item.color.withValues(alpha: 0.15),
+                                borderRadius: BorderRadius.circular(14),
                               ),
-                              child: Text(
-                                item.timeRange,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold,
-                                  color: item.color,
-                                ),
-                              ),
+                              child: Icon(item.icon, color: item.color, size: 24),
                             ),
-                            const SizedBox(width: 10),
+                            const SizedBox(width: 12),
                             // Subject & Topic
                             Expanded(
                               child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     item.subject,
@@ -136,17 +193,22 @@ class DynamicScheduleScreen extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            const SizedBox(width: 12),
-
-                            // Leading Icon Box
+                            const SizedBox(width: 10),
+                            // Time Badge (Left in RTL)
                             Container(
-                              width: 44,
-                              height: 44,
+                              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
                               decoration: BoxDecoration(
-                                color: item.color.withOpacity(0.15),
-                                borderRadius: BorderRadius.circular(14),
+                                color: item.color.withValues(alpha: 0.12),
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              child: Icon(item.icon, color: item.color, size: 24),
+                              child: Text(
+                                item.timeRange,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.bold,
+                                  color: item.color,
+                                ),
+                              ),
                             ),
                           ],
                         ),
@@ -161,4 +223,60 @@ class DynamicScheduleScreen extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildQuickAction({
+    required BuildContext context,
+    required IconData icon,
+    required String label,
+    required Color color,
+    required bool isDark,
+    required VoidCallback onTap,
+  }) {
+    return Expanded(
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 6),
+          decoration: BoxDecoration(
+            color: isDark ? const Color(0xFF16223B) : Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(
+              color: isDark ? const Color(0xFF1F2F4E) : const Color(0xFFE2E8F0),
+            ),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withValues(alpha: 0.02),
+                blurRadius: 6,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                padding: const EdgeInsets.all(7),
+                decoration: BoxDecoration(
+                  color: color.withValues(alpha: 0.12),
+                  shape: BoxShape.circle,
+                ),
+                child: Icon(icon, color: color, size: 18),
+              ),
+              const SizedBox(height: 5),
+              Text(
+                label,
+                style: GoogleFonts.cairo(
+                  fontSize: 11,
+                  fontWeight: FontWeight.bold,
+                  color: isDark ? Colors.white : const Color(0xFF0F2547),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
+
