@@ -59,10 +59,25 @@ class AppTheme {
         onPrimary: Colors.white,
         onSurface: lightText,
       ),
-      fontFamily: GoogleFonts.cairo().fontFamily,
+      fontFamily: 'Cairo',
+      fontFamilyFallback: const ['Cairo', 'sans-serif'],
       textTheme: GoogleFonts.cairoTextTheme().apply(
+        fontFamily: 'Cairo',
         bodyColor: lightText,
         displayColor: lightText,
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        titleTextStyle: GoogleFonts.cairo(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: lightText,
+        ),
+      ),
+      tabBarTheme: TabBarTheme(
+        labelStyle: GoogleFonts.cairo(fontWeight: FontWeight.bold, fontSize: 13),
+        unselectedLabelStyle: GoogleFonts.cairo(fontWeight: FontWeight.w600, fontSize: 13),
       ),
       cardTheme: CardTheme(
         color: lightCard,
@@ -79,7 +94,7 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 24),
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
           textStyle: GoogleFonts.cairo(
             fontSize: 16,
             fontWeight: FontWeight.bold,
@@ -121,10 +136,25 @@ class AppTheme {
         onPrimary: Colors.white,
         onSurface: darkText,
       ),
-      fontFamily: GoogleFonts.cairo().fontFamily,
+      fontFamily: 'Cairo',
+      fontFamilyFallback: const ['Cairo', 'sans-serif'],
       textTheme: GoogleFonts.cairoTextTheme(ThemeData.dark().textTheme).apply(
+        fontFamily: 'Cairo',
         bodyColor: darkText,
         displayColor: darkText,
+      ),
+      appBarTheme: AppBarTheme(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        titleTextStyle: GoogleFonts.cairo(
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+          color: darkText,
+        ),
+      ),
+      tabBarTheme: TabBarTheme(
+        labelStyle: GoogleFonts.cairo(fontWeight: FontWeight.bold, fontSize: 13),
+        unselectedLabelStyle: GoogleFonts.cairo(fontWeight: FontWeight.w600, fontSize: 13),
       ),
       cardTheme: CardTheme(
         color: darkCard,
@@ -141,7 +171,7 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
-          padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 24),
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
           textStyle: GoogleFonts.cairo(
             fontSize: 16,
             fontWeight: FontWeight.bold,

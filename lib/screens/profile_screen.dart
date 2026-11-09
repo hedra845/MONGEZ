@@ -107,7 +107,7 @@ class ProfileScreen extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       app.userEmail,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 13,
                         color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF5A6E8C),
                       ),
@@ -375,7 +375,7 @@ class ProfileScreen extends StatelessWidget {
                             ),
                             child: Text(
                               "${app.unreadNotificationsCount}",
-                              style: const TextStyle(
+                              style: GoogleFonts.cairo(
                                 color: Colors.white,
                                 fontSize: 11,
                                 fontWeight: FontWeight.bold,

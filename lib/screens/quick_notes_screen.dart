@@ -15,7 +15,7 @@ class QuickNotesScreen extends StatefulWidget {
 class _QuickNotesScreenState extends State<QuickNotesScreen> {
   final _titleController = TextEditingController();
   final _contentController = TextEditingController();
-  String _selectedSubject = "الرياضيات";
+  final String _selectedSubject = "الرياضيات";
 
   void _showAddNoteDialog() {
     final isDark = Theme.of(context).brightness == Brightness.dark;

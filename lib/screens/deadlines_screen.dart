@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
@@ -66,7 +66,7 @@ class _DeadlinesScreenState extends State<DeadlinesScreen> {
                 leading: const Icon(Icons.calendar_month, color: Color(0xFF2563EB)),
                 title: Text(
                   "${_selectedDate.year}-${_selectedDate.month.toString().padLeft(2, '0')}-${_selectedDate.day.toString().padLeft(2, '0')}",
-                  style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                  style: GoogleFonts.cairo(fontWeight: FontWeight.bold),
                 ),
                 trailing: Text("اختر التاريخ", style: GoogleFonts.cairo()),
                 onTap: () async {
@@ -186,7 +186,7 @@ class _DeadlinesScreenState extends State<DeadlinesScreen> {
                             ),
                             child: Text(
                               item.date,
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.cairo(
                                 fontSize: 13,
                                 fontWeight: FontWeight.bold,
                                 color: item.color,

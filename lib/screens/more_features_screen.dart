@@ -16,6 +16,12 @@ import 'reports_progress_screen.dart';
 import 'ai_quiz_generation_screen.dart';
 import 'gamification_rewards_screen.dart';
 import 'subscription_plans_screen.dart';
+import 'bio_intelligence_screen.dart';
+import 'study_competition_screen.dart';
+import 'study_wallet_screen.dart';
+import 'interactive_learning_screen.dart';
+import 'ai_assistants_screen.dart';
+import '../widgets/smart_features_neon_grid.dart';
 
 class MoreFeaturesScreen extends StatelessWidget {
   const MoreFeaturesScreen({super.key});
@@ -98,6 +104,11 @@ class MoreFeaturesScreen extends StatelessWidget {
                       ),
                     ),
 
+                    const SizedBox(height: 18),
+
+                    // Neon Features Grid
+                    const SmartFeaturesNeonGrid(),
+
                     const SizedBox(height: 20),
 
                     // Section 1: Study & AI Tools
@@ -105,11 +116,53 @@ class MoreFeaturesScreen extends StatelessWidget {
                     const SizedBox(height: 10),
                     _buildGrid([
                       _FeatureItem(
+                        title: "المساعدون الأذكياء",
+                        subtitle: "5 خبراء AI متخصصين",
+                        icon: Icons.psychology_rounded,
+                        color: const Color(0xFF0284C7),
+                        screen: const AiAssistantsScreen(),
+                      ),
+                      _FeatureItem(
+                        title: "الذكاء الحيوي",
+                        subtitle: "تزامن إيقاع الدماغ والتركيز",
+                        icon: Icons.psychology_rounded,
+                        color: const Color(0xFF10B981),
+                        screen: const BioIntelligenceScreen(),
+                      ),
+                      _FeatureItem(
+                        title: "التعلم التفاعلي",
+                        subtitle: "مجسمات ومعامل 3D",
+                        icon: Icons.view_in_ar_rounded,
+                        color: const Color(0xFF8B5CF6),
+                        screen: const InteractiveLearningScreen(),
+                      ),
+                      _FeatureItem(
                         title: "غرف المذاكرة",
                         subtitle: "مذاكرة جماعية حية",
                         icon: Icons.groups_rounded,
                         color: const Color(0xFF2563EB),
                         screen: const VirtualStudyRoomsScreen(),
+                      ),
+                      _FeatureItem(
+                        title: "ساحة المسابقات",
+                        subtitle: "تحديات مباشرة و 1v1",
+                        icon: Icons.emoji_events_rounded,
+                        color: const Color(0xFFF59E0B),
+                        screen: const StudyCompetitionScreen(),
+                      ),
+                      _FeatureItem(
+                        title: "محفظتي",
+                        subtitle: "رصيد وجوائز Study Coins",
+                        icon: Icons.account_balance_wallet_rounded,
+                        color: const Color(0xFF0284C7),
+                        screen: const StudyWalletScreen(),
+                      ),
+                      _FeatureItem(
+                        title: "المعلم الذكي",
+                        subtitle: "شرح فوري وتوجيه",
+                        icon: Icons.smart_toy_rounded,
+                        color: const Color(0xFF8B5CF6),
+                        screen: const AiTutorChatScreen(),
                       ),
                       _FeatureItem(
                         title: "حاسبة المعدل",
@@ -124,13 +177,6 @@ class MoreFeaturesScreen extends StatelessWidget {
                         icon: Icons.mic_external_on_rounded,
                         color: const Color(0xFF0EA5E9),
                         screen: const AiAudioNotesScreen(),
-                      ),
-                      _FeatureItem(
-                        title: "المعلم الذكي",
-                        subtitle: "شرح فوري وتوجيه",
-                        icon: Icons.smart_toy_rounded,
-                        color: const Color(0xFF8B5CF6),
-                        screen: const AiTutorChatScreen(),
                       ),
                       _FeatureItem(
                         title: "البطاقات الذكية",

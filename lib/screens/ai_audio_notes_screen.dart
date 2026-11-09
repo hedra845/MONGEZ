@@ -242,7 +242,7 @@ class _AiAudioNotesScreenState extends State<AiAudioNotesScreen> {
                           children: [
                             Text(
                               _isRecording ? _formatTimer(_recordSeconds) : "00:00",
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.cairo(
                                 fontSize: 28,
                                 fontWeight: FontWeight.w900,
                                 color: Colors.white,
@@ -409,7 +409,7 @@ class _AiAudioNotesScreenState extends State<AiAudioNotesScreen> {
               children: [
                 Text(
                   note.durationText,
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.cairo(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
                     color: const Color(0xFF64748B),
@@ -497,7 +497,7 @@ class _AiAudioNotesScreenState extends State<AiAudioNotesScreen> {
                           ),
                         ),
                         const SizedBox(width: 6),
-                        const Text("•", style: TextStyle(color: Color(0xFF1E5BB8), fontWeight: FontWeight.bold)),
+                        Text("•", style: GoogleFonts.cairo(color: const Color(0xFF1E5BB8), fontWeight: FontWeight.bold)),
                       ],
                     ),
                   );

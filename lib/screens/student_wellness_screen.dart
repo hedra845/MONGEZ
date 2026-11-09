@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
@@ -62,7 +62,7 @@ class StudentWellnessScreen extends StatelessWidget {
                           ),
                           child: Text(
                             "${app.waterCupsDrunk} من ${app.targetWaterCups} أكواب",
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.cairo(
                               fontSize: 13,
                               fontWeight: FontWeight.bold,
                               color: const Color(0xFF0284C7),

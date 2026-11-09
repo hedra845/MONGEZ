@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
@@ -203,7 +203,7 @@ class DynamicScheduleScreen extends StatelessWidget {
                               ),
                               child: Text(
                                 item.timeRange,
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.cairo(
                                   fontSize: 13,
                                   fontWeight: FontWeight.bold,
                                   color: item.color,

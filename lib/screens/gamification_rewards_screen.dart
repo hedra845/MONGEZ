@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../models/advanced_features_models.dart';
@@ -33,7 +33,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
     final app = Provider.of<AppProvider>(context);
 
     return Scaffold(
-      backgroundColor: isDark ? const Color(0xFF0D0B18) : const Color(0xFFF7F6FD),
+      backgroundColor: isDark ? const Color(0xFF090E18) : const Color(0xFFF4F7FC),
       body: SafeArea(
         child: Column(
           children: [
@@ -53,10 +53,10 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                         gradient: LinearGradient(
                           colors: app.isDailyChestClaimed
                               ? [
-                                  isDark ? const Color(0xFF1E1B2E) : const Color(0xFFE5E2F0),
-                                  isDark ? const Color(0xFF2D2845) : const Color(0xFFD4CFE6),
+                                  isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0),
+                                  isDark ? const Color(0xFF334155) : const Color(0xFFCBD5E1),
                                 ]
-                              : const [Color(0xFF8B5CF6), Color(0xFF6D28D9), Color(0xFF4C1D95)],
+                              : const [Color(0xFF1E5BB8), Color(0xFF2563EB), Color(0xFF0EA5E9)],
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
@@ -65,7 +65,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                             ? null
                             : [
                                 BoxShadow(
-                                  color: const Color(0xFF7C3AED).withValues(alpha: 0.4),
+                                  color: const Color(0xFF2563EB).withValues(alpha: 0.35),
                                   blurRadius: 10,
                                   offset: const Offset(0, 4),
                                 ),
@@ -80,7 +80,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                               color: app.isDailyChestClaimed
-                                  ? (isDark ? const Color(0xFF9E99B3) : const Color(0xFF6B6684))
+                                  ? (isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B))
                                   : Colors.white,
                             ),
                           ),
@@ -100,17 +100,17 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                         style: GoogleFonts.cairo(
                           fontSize: 18,
                           fontWeight: FontWeight.w900,
-                          color: isDark ? Colors.white : const Color(0xFF1E1B38),
+                          color: isDark ? Colors.white : const Color(0xFF0F2547),
                         ),
                       ),
                       const SizedBox(width: 8),
                       Container(
                         padding: const EdgeInsets.all(6),
                         decoration: BoxDecoration(
-                          color: const Color(0xFF7C3AED).withValues(alpha: 0.15),
+                          color: const Color(0xFF2563EB).withValues(alpha: 0.12),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Icon(Icons.emoji_events_rounded, color: Color(0xFF8B5CF6), size: 20),
+                        child: const Icon(Icons.emoji_events_rounded, color: Color(0xFF2563EB), size: 20),
                       ),
                     ],
                   ),
@@ -140,11 +140,11 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                               height: 50,
                               padding: const EdgeInsets.all(4),
                               decoration: BoxDecoration(
-                                color: isDark ? const Color(0xFF171329) : const Color(0xFFEDE9FE),
+                                color: isDark ? const Color(0xFF111A2D) : const Color(0xFFEDF2F9),
                                 borderRadius: BorderRadius.circular(16),
                                 border: Border.all(
-                                  color: isDark ? const Color(0xFF292348) : const Color(0xFFDDD6FE),
-                                  width: 0.8,
+                                  color: isDark ? const Color(0xFF1F2F4E) : const Color(0xFFDCE4F0),
+                                  width: 1.0,
                                 ),
                               ),
                               child: TabBar(
@@ -154,12 +154,12 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                                 indicatorSize: TabBarIndicatorSize.tab,
                                 indicator: BoxDecoration(
                                   gradient: const LinearGradient(
-                                    colors: [Color(0xFF6366F1), Color(0xFF7C3AED)],
+                                    colors: [Color(0xFF1E5BB8), Color(0xFF2563EB)],
                                   ),
                                   borderRadius: BorderRadius.circular(12),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: const Color(0xFF6366F1).withValues(alpha: 0.35),
+                                      color: const Color(0xFF2563EB).withValues(alpha: 0.35),
                                       blurRadius: 8,
                                       offset: const Offset(0, 2),
                                     ),
@@ -167,7 +167,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                                 ),
                                 labelColor: Colors.white,
                                 unselectedLabelColor:
-                                    isDark ? const Color(0xFFA5B4FC) : const Color(0xFF6B7280),
+                                    isDark ? const Color(0xFF94A3B8) : const Color(0xFF5A6E8C),
                                 labelStyle: GoogleFonts.cairo(
                                   fontSize: 12.5,
                                   fontWeight: FontWeight.w800,
@@ -300,16 +300,16 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: isDark
-              ? [const Color(0xFF1E1435), const Color(0xFF311E63), const Color(0xFF1B1842)]
-              : [const Color(0xFF4338CA), const Color(0xFF6366F1), const Color(0xFF7C3AED)],
+              ? [const Color(0xFF111E38), const Color(0xFF1E3A8A), const Color(0xFF0F172A)]
+              : [const Color(0xFF1E5BB8), const Color(0xFF2563EB), const Color(0xFF1D4ED8)],
           begin: Alignment.topRight,
           end: Alignment.bottomLeft,
         ),
         borderRadius: BorderRadius.circular(26),
         boxShadow: [
           BoxShadow(
-            color: const Color(0xFF6366F1).withValues(alpha: isDark ? 0.35 : 0.32),
-            blurRadius: 24,
+            color: const Color(0xFF1E5BB8).withValues(alpha: isDark ? 0.35 : 0.28),
+            blurRadius: 22,
             offset: const Offset(0, 8),
           ),
         ],
@@ -417,7 +417,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                       children: [
                         Text(
                           "$percent%",
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.cairo(
                             fontSize: 12.5,
                             fontWeight: FontWeight.bold,
                             color: const Color(0xFFFDE68A),
@@ -426,7 +426,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                         const SizedBox(width: 4),
                         Text(
                           "(${app.currentXp} / ${app.targetXp} XP)",
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.cairo(
                             fontSize: 11,
                             fontWeight: FontWeight.w600,
                             color: Colors.white.withValues(alpha: 0.75),
@@ -507,7 +507,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                               children: [
                                 Text(
                                   "${app.excellenceStars}",
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.cairo(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white,
@@ -562,7 +562,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                               children: [
                                 Text(
                                   "${app.streakDays} أيام",
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.cairo(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white,
@@ -617,7 +617,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                               children: [
                                 Text(
                                   "${app.userCoins}",
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.cairo(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w900,
                                     color: Colors.white,
@@ -771,15 +771,15 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                         }
                       : null,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF6366F1),
+                    backgroundColor: const Color(0xFF1E5BB8),
                     disabledBackgroundColor:
-                        isDark ? const Color(0xFF1E1B2E) : const Color(0xFFEDE9FE),
+                        isDark ? const Color(0xFF1E293B) : const Color(0xFFE2E8F0),
                     disabledForegroundColor:
-                        isDark ? const Color(0xFF6B6684) : const Color(0xFF9E99B3),
+                        isDark ? const Color(0xFF64748B) : const Color(0xFF94A3B8),
                     padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
                     elevation: canAfford ? 3 : 0,
-                    shadowColor: const Color(0xFF6366F1).withValues(alpha: 0.4),
+                    shadowColor: const Color(0xFF1E5BB8).withValues(alpha: 0.35),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
@@ -788,7 +788,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                       const SizedBox(width: 4),
                       Text(
                         "${reward.pointsCost}",
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.cairo(
                           fontSize: 13,
                           fontWeight: FontWeight.bold,
                           color: canAfford
@@ -1019,7 +1019,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                       children: [
                         Text(
                           "${task.currentProgress} / ${task.targetProgress}",
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.cairo(
                             fontSize: 11,
                             fontWeight: FontWeight.bold,
                             color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
@@ -1204,7 +1204,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                   children: [
                     Text(
                       "${badge.progress.toInt()}%",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 10,
                         fontWeight: FontWeight.bold,
                         color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
@@ -1543,7 +1543,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                       const SizedBox(width: 3),
                       Text(
                         "${st['xp']} XP",
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.cairo(
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                           color: st["color"] as Color,
@@ -1563,7 +1563,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                     const SizedBox(width: 2),
                     Text(
                       "${st['streak']}",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFFEF4444),
@@ -1588,7 +1588,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
                       const SizedBox(width: 2),
                       Text(
                         "${st['stars']}",
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.cairo(
                           fontSize: 11,
                           fontWeight: FontWeight.bold,
                           color: const Color(0xFFF59E0B),
@@ -1670,7 +1670,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
         ),
         Text(
           xp,
-          style: GoogleFonts.poppins(
+          style: GoogleFonts.cairo(
             fontSize: 10,
             fontWeight: FontWeight.w700,
             color: color,
@@ -1695,7 +1695,7 @@ class _GamificationRewardsScreenState extends State<GamificationRewardsScreen>
           alignment: Alignment.center,
           child: Text(
             "#$rank",
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.cairo(
               fontSize: 18,
               fontWeight: FontWeight.w900,
               color: isDark ? Colors.white : const Color(0xFF1E1B38),

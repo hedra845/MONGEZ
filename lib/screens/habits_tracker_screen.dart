@@ -473,7 +473,7 @@ class _HabitsTrackerScreenState extends State<HabitsTrackerScreen> {
                     const SizedBox(width: 2),
                     Text(
                       "${habit.streakDays}d",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFFEF4444),
@@ -604,7 +604,7 @@ class _HabitsTrackerScreenState extends State<HabitsTrackerScreen> {
                         label: Text(freq, style: GoogleFonts.cairo(fontSize: 12)),
                         selected: isSelected,
                         selectedColor: const Color(0xFF4338CA),
-                        labelStyle: TextStyle(color: isSelected ? Colors.white : null),
+                        labelStyle: GoogleFonts.cairo(color: isSelected ? Colors.white : null, fontSize: 12),
                         onSelected: (_) {
                           app.setNotificationFrequency(freq);
                           setSheetState(() {});
@@ -866,7 +866,7 @@ class _HabitsTrackerScreenState extends State<HabitsTrackerScreen> {
       label: Text(label, style: GoogleFonts.cairo(fontSize: 12)),
       selected: isSelected,
       selectedColor: const Color(0xFF1E5BB8),
-      labelStyle: TextStyle(color: isSelected ? Colors.white : null),
+      labelStyle: GoogleFonts.cairo(color: isSelected ? Colors.white : null, fontSize: 12),
       onSelected: (_) => onSelect(cat),
     );
   }

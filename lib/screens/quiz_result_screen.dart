@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
@@ -50,7 +50,7 @@ class QuizResultScreen extends StatelessWidget {
                           children: [
                             Text(
                               "${app.quizScore}%",
-                              style: GoogleFonts.poppins(
+                              style: GoogleFonts.cairo(
                                 fontSize: 38,
                                 fontWeight: FontWeight.bold,
                                 color: isDark ? Colors.white : const Color(0xFF0F172A),

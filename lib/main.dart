@@ -30,6 +30,8 @@ class MongezApp extends StatelessWidget {
       themeMode: appProvider.themeMode,
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
+      themeAnimationDuration: const Duration(milliseconds: 200),
+      themeAnimationCurve: Curves.fastOutSlowIn,
       locale: const Locale('ar', 'EG'),
       supportedLocales: const [
         Locale('ar', 'EG'),
@@ -43,7 +45,10 @@ class MongezApp extends StatelessWidget {
       builder: (context, child) {
         return Directionality(
           textDirection: TextDirection.rtl,
-          child: child ?? const SizedBox(),
+          child: DefaultTextStyle.merge(
+            style: const TextStyle(fontFamily: 'Cairo'),
+            child: child ?? const SizedBox(),
+          ),
         );
       },
       home: const SplashScreen(),

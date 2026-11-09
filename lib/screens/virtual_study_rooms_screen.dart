@@ -1,4 +1,4 @@
-import 'dart:async';
+﻿import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -342,7 +342,7 @@ class _VirtualStudyRoomsScreenState extends State<VirtualStudyRoomsScreen> {
                     ),
                     child: Text(
                       room.roomCode,
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFF64748B),
@@ -611,7 +611,7 @@ class _ActiveStudyRoomScreenState extends State<ActiveStudyRoomScreen> {
                           ),
                           child: Text(
                             "كود الغرفة: ${widget.room.roomCode}",
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.cairo(
                               fontSize: 12,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -644,7 +644,7 @@ class _ActiveStudyRoomScreenState extends State<ActiveStudyRoomScreen> {
                     const SizedBox(height: 12),
                     Text(
                       _formatTime(_remainingSeconds),
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 44,
                         fontWeight: FontWeight.w900,
                         color: Colors.white,
@@ -735,7 +735,7 @@ class _ActiveStudyRoomScreenState extends State<ActiveStudyRoomScreen> {
                                 const SizedBox(width: 4),
                                 Text(
                                   "${m.cheersCount}",
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.cairo(
                                     fontSize: 12,
                                     fontWeight: FontWeight.bold,
                                     color: const Color(0xFFF59E0B),

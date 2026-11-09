@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
@@ -240,7 +240,7 @@ class _SubscriptionPlansScreenState extends State<SubscriptionPlansScreen> {
                                 children: [
                                   Text(
                                     "${plan['price']}",
-                                    style: GoogleFonts.poppins(
+                                    style: GoogleFonts.cairo(
                                       fontSize: 32,
                                       fontWeight: FontWeight.w900,
                                       color: isSelected

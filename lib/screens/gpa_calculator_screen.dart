@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../models/extended_features_models.dart';
@@ -142,7 +142,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
                             children: [
                               Text(
                                 currentGpa.toStringAsFixed(app.currentGpaScale == GpaScale.percentage ? 1 : 2),
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.cairo(
                                   fontSize: 48,
                                   fontWeight: FontWeight.w900,
                                   color: Colors.white,
@@ -151,7 +151,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
                               if (app.currentGpaScale == GpaScale.percentage)
                                 Text(
                                   "%",
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.cairo(
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white.withValues(alpha: 0.8),
@@ -248,7 +248,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
                             children: [
                               Text(
                                 "${_targetPercent.toInt()}%",
-                                style: GoogleFonts.poppins(
+                                style: GoogleFonts.cairo(
                                   fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: const Color(0xFF1E5BB8),
@@ -280,7 +280,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
                               children: [
                                 Text(
                                   "${neededFinal.toStringAsFixed(1)}%",
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.cairo(
                                     fontSize: 20,
                                     fontWeight: FontWeight.w900,
                                     color: const Color(0xFF10B981),
@@ -374,7 +374,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
                                 ),
                                 child: Text(
                                   course.letterGrade,
-                                  style: GoogleFonts.poppins(
+                                  style: GoogleFonts.cairo(
                                     fontSize: 13,
                                     fontWeight: FontWeight.bold,
                                     color: const Color(0xFF1E5BB8),
@@ -425,7 +425,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
       children: [
         Text(
           val,
-          style: GoogleFonts.poppins(
+          style: GoogleFonts.cairo(
             fontSize: 18,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -529,7 +529,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
                       controller: scoreCtrl,
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.right,
-                      style: GoogleFonts.poppins(color: isDark ? Colors.white : Colors.black),
+                      style: GoogleFonts.cairo(color: isDark ? Colors.white : Colors.black),
                       decoration: InputDecoration(
                         labelText: "الدرجة المئوية (من 100)",
                         labelStyle: GoogleFonts.cairo(fontSize: 12),
@@ -541,7 +541,7 @@ class _GpaCalculatorScreenState extends State<GpaCalculatorScreen> {
                       controller: hoursCtrl,
                       keyboardType: TextInputType.number,
                       textAlign: TextAlign.right,
-                      style: GoogleFonts.poppins(color: isDark ? Colors.white : Colors.black),
+                      style: GoogleFonts.cairo(color: isDark ? Colors.white : Colors.black),
                       decoration: InputDecoration(
                         labelText: "عدد الساعات أو الوزن (مثال: 3)",
                         labelStyle: GoogleFonts.cairo(fontSize: 12),

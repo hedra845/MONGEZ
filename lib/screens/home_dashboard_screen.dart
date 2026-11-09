@@ -10,6 +10,8 @@ import 'gamification_rewards_screen.dart';
 import 'habits_tracker_screen.dart';
 import 'session_setup_screen.dart';
 import 'notifications_screen.dart';
+import '../widgets/smart_features_neon_grid.dart';
+import '../widgets/animated_theme_toggle_button.dart';
 
 class HomeDashboardScreen extends StatelessWidget {
   final VoidCallback? onNavigateToSchedule;
@@ -27,9 +29,13 @@ class HomeDashboardScreen extends StatelessWidget {
     final app = Provider.of<AppProvider>(context);
 
     return Scaffold(
-      backgroundColor: isDark ? const Color(0xFF0B1324) : const Color(0xFFF6F8FC),
-      body: SafeArea(
-        child: SingleChildScrollView(
+      backgroundColor: Colors.transparent,
+      body: AnimatedContainer(
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOutCubic,
+        color: isDark ? const Color(0xFF0B1324) : const Color(0xFFF6F8FC),
+        child: SafeArea(
+          child: SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -45,6 +51,13 @@ class HomeDashboardScreen extends StatelessWidget {
               // 2. Goal & Motivation Card (كارت الهدف اليومي مع الجبل والراية)
               // =======================================================
               _buildGoalAndMotivationCard(context, app, isDark),
+
+              const SizedBox(height: 16),
+
+              // =======================================================
+              // 2.5 Smart Neon Features Grid (المزايا الذكية الستة)
+              // =======================================================
+              const SmartFeaturesNeonGrid(),
 
               const SizedBox(height: 18),
 
@@ -79,8 +92,9 @@ class HomeDashboardScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 
   // ---------------------------------------------------------------------------
   // Top Header Bar
@@ -147,6 +161,14 @@ class HomeDashboardScreen extends StatelessWidget {
         ),
 
         const SizedBox(width: 12),
+
+        // Animated Dark / Light Mode Toggle Button
+        AnimatedThemeToggleButton(
+          isDark: isDark,
+          onToggle: () => app.toggleTheme(),
+        ),
+
+        const SizedBox(width: 8),
 
         // Bell Notification with live badge
         InkWell(
@@ -270,7 +292,7 @@ class HomeDashboardScreen extends StatelessWidget {
                     const SizedBox(width: 6),
                     Text(
                       "${app.completedGoalHours}/${app.dailyGoalHours}",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 11,
                         fontWeight: FontWeight.bold,
                         color: isDark ? Colors.white70 : const Color(0xFF475569),
@@ -596,7 +618,7 @@ class HomeDashboardScreen extends StatelessWidget {
                 const SizedBox(height: 6),
                 Text(
                   "25:00",
-                  style: GoogleFonts.poppins(
+                  style: GoogleFonts.cairo(
                     fontSize: 34,
                     fontWeight: FontWeight.w900,
                     color: isDark ? Colors.white : const Color(0xFF0F172A),
@@ -614,29 +636,41 @@ class HomeDashboardScreen extends StatelessWidget {
                 const SizedBox(height: 12),
                 SizedBox(
                   width: double.infinity,
-                  height: 38,
-                  child: ElevatedButton.icon(
+                  height: 60,
+                  child: ElevatedButton(
                     onPressed: () {
                       app.startTimer();
                       Navigator.of(context).push(
                         MaterialPageRoute(builder: (_) => const ActiveTimerScreen()),
                       );
                     },
-                    icon: const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 18),
-                    label: Text(
-                      "ابدأ الآن",
-                      style: GoogleFonts.cairo(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF2563EB),
+                      foregroundColor: Colors.white,
+                      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
                       ),
                       elevation: 0,
+                      visualDensity: VisualDensity.compact,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.play_arrow_rounded, color: Colors.white, size: 20),
+                        const SizedBox(width: 4),
+                        Text(
+                          "ابدأ الآن",
+                          maxLines: 1,
+                          overflow: TextOverflow.visible,
+                          style: GoogleFonts.cairo(
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),
@@ -875,7 +909,7 @@ class HomeDashboardScreen extends StatelessWidget {
                       const SizedBox(height: 6),
                       Text(
                         "${sub.percentage}%",
-                        style: GoogleFonts.poppins(
+                        style: GoogleFonts.cairo(
                           fontSize: 12,
                           fontWeight: FontWeight.w900,
                           color: isDark ? Colors.white : const Color(0xFF0F172A),

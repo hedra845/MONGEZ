@@ -5,7 +5,18 @@ import '../providers/app_provider.dart';
 import '../widgets/common_widgets.dart';
 
 class AiTutorChatScreen extends StatefulWidget {
-  const AiTutorChatScreen({super.key});
+  final String? assistantTitle;
+  final String? assistantSubtitle;
+  final IconData? assistantIcon;
+  final Color? assistantColor;
+
+  const AiTutorChatScreen({
+    super.key,
+    this.assistantTitle,
+    this.assistantSubtitle,
+    this.assistantIcon,
+    this.assistantColor,
+  });
 
   @override
   State<AiTutorChatScreen> createState() => _AiTutorChatScreenState();
@@ -50,7 +61,7 @@ class _AiTutorChatScreenState extends State<AiTutorChatScreen> {
         child: Column(
           children: [
             HeaderNavBar(
-              title: "المعلم الذكي الفوري (AI Tutor)",
+              title: widget.assistantTitle ?? "المعلم الذكي الفوري (AI Tutor)",
               onBack: () => Navigator.of(context).pop(),
             ),
 
@@ -59,9 +70,9 @@ class _AiTutorChatScreenState extends State<AiTutorChatScreen> {
               margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
               padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
               decoration: BoxDecoration(
-                color: const Color(0xFF1E5BB8).withValues(alpha: 0.1),
+                color: (widget.assistantColor ?? const Color(0xFF1E5BB8)).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(14),
-                border: Border.all(color: const Color(0xFF1E5BB8).withValues(alpha: 0.2)),
+                border: Border.all(color: (widget.assistantColor ?? const Color(0xFF1E5BB8)).withValues(alpha: 0.2)),
               ),
               child: Row(
                 children: [
@@ -76,11 +87,11 @@ class _AiTutorChatScreenState extends State<AiTutorChatScreen> {
                   const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      "متصل ومستعد لشرح أي درس أو تلخيص أي مسألة في ثوانٍ",
+                      widget.assistantSubtitle ?? "متصل ومستعد لشرح أي درس أو تلخيص أي مسألة في ثوانٍ",
                       style: GoogleFonts.cairo(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
-                        color: isDark ? const Color(0xFF93C5FD) : const Color(0xFF1E5BB8),
+                        color: isDark ? const Color(0xFF93C5FD) : (widget.assistantColor ?? const Color(0xFF1E5BB8)),
                       ),
                       textAlign: TextAlign.right,
                     ),

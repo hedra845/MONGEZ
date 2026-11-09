@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/common_widgets.dart';
 import '../widgets/custom_charts.dart';
@@ -52,7 +52,7 @@ class ReportsProgressScreen extends StatelessWidget {
                       children: [
                         Text(
                           "24/30 ساعة",
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.cairo(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
                             color: const Color(0xFF2563EB),
@@ -253,7 +253,7 @@ class ReportsProgressScreen extends StatelessWidget {
           const SizedBox(height: 12),
           Text(
             value,
-            style: GoogleFonts.poppins(
+            style: GoogleFonts.cairo(
               fontSize: 22,
               fontWeight: FontWeight.bold,
               color: isDark ? Colors.white : const Color(0xFF0F172A),

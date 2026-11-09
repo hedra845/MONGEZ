@@ -103,7 +103,7 @@ class ActiveTimerScreen extends StatelessWidget {
                       children: [
                         Text(
                           app.formattedTimer,
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.cairo(
                             fontSize: 46,
                             fontWeight: FontWeight.bold,
                             color: isDark ? Colors.white : const Color(0xFF0F172A),

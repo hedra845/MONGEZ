@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../widgets/common_widgets.dart';
 
@@ -10,8 +10,8 @@ class BreakScreen extends StatefulWidget {
 }
 
 class _BreakScreenState extends State<BreakScreen> {
-  int _breakMinutes = 15;
-  int _breakSeconds = 0;
+  final int _breakMinutes = 15;
+  final int _breakSeconds = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +103,7 @@ class _BreakScreenState extends State<BreakScreen> {
                     const SizedBox(width: 12),
                     Text(
                       "${_breakMinutes.toString().padLeft(2, '0')}:${_breakSeconds.toString().padLeft(2, '0')}",
-                      style: GoogleFonts.poppins(
+                      style: GoogleFonts.cairo(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                         color: const Color(0xFF06B6D4),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+﻿import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import '../providers/app_provider.dart';
@@ -148,7 +148,7 @@ class _TargetGoalScreenState extends State<TargetGoalScreen> {
                           ),
                           child: Text(
                             "${targetPercentage.toInt()}%",
-                            style: GoogleFonts.poppins(
+                            style: GoogleFonts.cairo(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               color: Colors.white,
@@ -191,14 +191,14 @@ class _TargetGoalScreenState extends State<TargetGoalScreen> {
                       children: [
                         Text(
                           "100%",
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.cairo(
                             fontSize: 12,
                             color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                           ),
                         ),
                         Text(
                           "50%",
-                          style: GoogleFonts.poppins(
+                          style: GoogleFonts.cairo(
                             fontSize: 12,
                             color: isDark ? const Color(0xFF94A3B8) : const Color(0xFF64748B),
                           ),
